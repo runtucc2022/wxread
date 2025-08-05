@@ -1,0 +1,15 @@
+name: Keep Actions Active
+on:
+  schedule:
+    # 每月1号运行（每月触发一次即可）
+    - cron: '0 0 1 * *' 
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Reset inactivity counter
+        run: |
+          echo "✅ Successfully reset 60-day timer"
+          date
